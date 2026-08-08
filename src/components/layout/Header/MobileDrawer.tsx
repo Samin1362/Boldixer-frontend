@@ -59,7 +59,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
           open ? "translate-x-0" : "translate-x-full",
         )}
       >
-        <div className="flex items-center justify-between bg-brand px-6 py-5 text-white">
+        <div className="flex items-center justify-between bg-primary px-6 py-5 text-white">
           <span className="leading-none">
             <span className="block text-lg font-bold">{site.name}</span>
             <span className="mt-1 block text-[9px] font-bold tracking-[0.12em]">
@@ -70,7 +70,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             type="button"
             onClick={onClose}
             aria-label="Close menu"
-            className="grid h-10 w-10 place-items-center rounded-full border border-white/60 text-xl leading-none transition-colors hover:bg-white hover:text-brand"
+            className="grid h-10 w-10 place-items-center rounded-full border border-white/60 text-xl leading-none transition-colors hover:bg-white hover:text-primary"
           >
             &times;
           </button>

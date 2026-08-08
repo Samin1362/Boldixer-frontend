@@ -18,6 +18,12 @@ import { stats, collage } from "@/content/stats";
  * Both source images are heavily upscaled by the design (the back layer is
  * 513x343 shown at 1474x727) and stretched — `object-cover` crops instead of
  * distorting. See plan.md.
+ *
+ * The counters float over the collage with no background of their own, which
+ * only worked in the Figma because the mock-up's lower band happened to be
+ * dark. The real photograph is bright and busy there, so gold-on-photo was
+ * unreadable. A scrim gives the row a guaranteed dark ground — 7.19:1 for the
+ * gold labels, 14.11:1 for the white figures — without hiding the image.
  */
 export function Stats() {
   const { ref, inView } = useInView<HTMLDivElement>();
@@ -68,8 +74,14 @@ export function Stats() {
           )}
         </Reveal>
 
+        {/* Scrim under the counters. Below lg the row has its own solid fill. */}
+        <div
+          aria-hidden
+          className="from-primary-deep via-primary-deep/85 pointer-events-none absolute inset-x-0 bottom-0 hidden h-[42%] bg-linear-to-t to-transparent lg:block"
+        />
+
         {/* Stats row */}
-        <div className="relative bg-footer py-12 lg:absolute lg:inset-x-0 lg:bottom-[7%] lg:bg-transparent lg:py-0">
+        <div className="bg-footer relative py-12 lg:absolute lg:inset-x-0 lg:bottom-[7%] lg:bg-transparent lg:py-0">
           <Container>
             <dl className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
               {stats.map((stat, i) => (

@@ -15,18 +15,18 @@ const inter = Inter({
 /** Set NEXT_PUBLIC_SITE_URL in the deploy environment for absolute OG URLs. */
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
-const title = "Boldixer — Construction Co.";
+const title = "Tabela Robusta — Construction & Real Estate";
 const description =
-  "Boldixer Pro costruction. We provide main source in interior, exterior, home and architect design.";
+  "Tabela Robusta Unipessoal Lda — construction and real estate. Interior, exterior, home and architect design.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: title,
-    template: "%s — Boldixer",
+    template: "%s — Tabela Robusta",
   },
   description,
-  applicationName: "Boldixer",
+  applicationName: "Tabela Robusta",
   alternates: { canonical: "/" },
   robots: {
     index: true,
@@ -38,14 +38,14 @@ export const metadata: Metadata = {
     description,
     type: "website",
     url: "/",
-    siteName: "Boldixer",
+    siteName: "Tabela Robusta",
     locale: "en_US",
     images: [
       {
-        url: "/images/og/boldixer-og.png",
+        url: "/images/og/tabela-robusta-og.png",
         width: 1200,
         height: 630,
-        alt: "Boldixer Pro costruction",
+        alt: "Tabela Robusta Unipessoal Lda — construction and real estate",
       },
     ],
   },
@@ -53,12 +53,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/images/og/boldixer-og.png"],
+    images: ["/images/og/tabela-robusta-og.png"],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F3C41A",
+  themeColor: "#2A3F6A",
   colorScheme: "light",
 };
 

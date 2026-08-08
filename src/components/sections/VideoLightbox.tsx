@@ -50,7 +50,7 @@ export function VideoLightbox({ open, onClose, url }: VideoLightboxProps) {
         <button
           type="button"
           onClick={onClose}
-          className="absolute -top-12 right-0 text-sm font-bold text-white/70 transition-colors hover:text-brand"
+          className="absolute -top-12 right-0 text-sm font-bold text-white/70 transition-colors hover:text-gold-bright"
         >
           Close
         </button>

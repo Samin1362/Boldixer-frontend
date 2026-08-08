@@ -3,14 +3,15 @@
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 import { Button, Input } from "@/components/ui";
-import { submitQuote, initialFormState } from "@/app/actions";
+import { submitQuote } from "@/app/actions";
+import { initialFormState } from "@/lib/formState";
 
 /** Figma: inputs 502x84 r=35, 25px/400 #888888 placeholders, 28px apart. */
 const fields = [
   { name: "fullName", label: "Full Name", type: "text", autoComplete: "name" },
-  { name: "email", label: "Email id", type: "email", autoComplete: "email" },
+  { name: "email", label: "Email Address", type: "email", autoComplete: "email" },
   { name: "subject", label: "Subject", type: "text", autoComplete: "off" },
-  { name: "phone", label: "Phone No", type: "tel", autoComplete: "tel" },
+  { name: "phone", label: "Phone Number", type: "tel", autoComplete: "tel" },
 ] as const;
 
 function SubmitButton() {
@@ -18,7 +19,7 @@ function SubmitButton() {
   return (
     <Button
       type="submit"
-      variant="dark"
+      variant="primary"
       size="lg"
       radius="soft"
       disabled={pending}
@@ -62,7 +63,7 @@ export function QuoteForm() {
         className={
           state.status === "success"
             ? "mt-5 text-base font-semibold text-ink"
-            : "mt-5 text-base font-semibold text-accent-deep"
+            : "mt-5 text-base font-semibold text-danger"
         }
       >
         {state.status !== "idle" ? state.message : ""}

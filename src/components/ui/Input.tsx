@@ -3,8 +3,8 @@ import { cn } from "@/lib/cn";
 /* React 19 passes `ref` as a normal prop, so no forwardRef wrapper is needed. */
 type InputProps = React.ComponentPropsWithRef<"input"> & {
   /**
-   * outline — contact card: white fill, 1px #888888 stroke (Figma 502x84 r=35)
-   * filled  — footer: renders #4E4B4B over the #333131 footer (Figma 276x82 r=35)
+   * outline — contact card: white fill, 1px stroke (Figma 502x84 r=35)
+   * filled  — footer: `primary-soft` over the navy footer (Figma 276x82 r=35)
    */
   tone?: "outline" | "filled";
   /** Visually hidden label. Every field needs one. */
@@ -16,10 +16,11 @@ type InputProps = React.ComponentPropsWithRef<"input"> & {
 
 const tones = {
   outline:
-    "bg-white border border-muted text-ink placeholder:text-muted focus:border-ink",
-  /* white/70 over #4E4B4B is 4.12:1 — just under AA. /85 clears it at 5.4:1. */
+    "bg-white border border-muted text-ink placeholder:text-muted focus:border-primary",
+  /* `primary-soft` lifts the field off the footer (2.04:1 edge); the white/85
+     placeholder on it is 6.09:1. */
   filled:
-    "bg-[#4E4B4B] border border-transparent text-white placeholder:text-white/85 focus:border-white/40",
+    "bg-primary-soft border border-transparent text-white placeholder:text-white/85 focus:border-gold-bright",
 } as const;
 
 /** Pill-rounded form field matching the design's r=35 controls. */
@@ -47,7 +48,9 @@ export function Input({
         className={cn(
           "h-[70px] w-full rounded-[29px] px-8 text-lg outline-none transition-colors duration-200",
           tones[tone],
-          error && "border-accent-deep",
+          // Tone-aware: `danger` on the navy field is 1.41:1, effectively no
+          // indicator. `danger-soft` clears the 3:1 needed for a non-text cue.
+          error && (tone === "filled" ? "border-danger-soft" : "border-danger"),
           className,
         )}
         {...props}
@@ -58,7 +61,7 @@ export function Input({
           role="alert"
           className={cn(
             "mt-2 px-8 text-sm font-semibold",
-            tone === "filled" ? "text-brand" : "text-accent-deep",
+            tone === "filled" ? "text-danger-soft" : "text-danger",
           )}
         >
           {error}

@@ -69,7 +69,7 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
         <button
           type="button"
           onClick={onClose}
-          className="mt-6 text-sm font-bold text-white/70 transition-colors hover:text-brand"
+          className="mt-6 text-sm font-bold text-white/70 transition-colors hover:text-gold-bright"
         >
           Close
         </button>

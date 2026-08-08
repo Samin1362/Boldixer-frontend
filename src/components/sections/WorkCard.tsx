@@ -11,7 +11,7 @@ type WorkCardProps = {
 
 /**
  * Figma: 385x560 white card — 385x460 image with a 100px caption bar.
- * Caption is one text node with overrides: "Construoction" 20px #FFC700,
+ * Caption is one text node with overrides: category 20px #FFC700,
  * title 25px black. Arrow is a 15x15 #CCCCCC vector, right-aligned.
  */
 export function WorkCard({ category, title, href, alt, image }: WorkCardProps) {
@@ -30,7 +30,7 @@ export function WorkCard({ category, title, href, alt, image }: WorkCardProps) {
 
       <div className="flex items-end justify-between gap-4 px-5 py-6">
         <div>
-          <p className="text-[20px] font-bold text-brand-bright">{category}</p>
+          <p className="text-gold-deep text-[20px] font-bold">{category}</p>
           <h3 className="mt-1 text-[25px] leading-tight font-bold text-ink">
             <Link href={href} className="after:absolute after:inset-0">
               {title}

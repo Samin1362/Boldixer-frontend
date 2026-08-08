@@ -1,5 +1,5 @@
 /**
- * About section copy. Spelling verbatim from the Figma — see content/site.ts.
+ * About section copy. Spelling corrected from the Figma — see content/site.ts.
  *
  * The body is one text node with a character-level override on chars 29-54
  * ("felis porttitor volutpat.") — Inter Bold, black at 81% opacity, against
@@ -8,7 +8,7 @@
  */
 export const about = {
   eyebrow: "About Us",
-  titleLines: ["We Help Pepole ", "Elevate Happines"],
+  titleLines: ["We Help People", "Elevate Happiness"],
   body: {
     before: "Vivamus suscipit tortor eget ",
     emphasis: "felis porttitor volutpat.",

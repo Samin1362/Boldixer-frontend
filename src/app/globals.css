@@ -1,28 +1,60 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Boldixer design tokens
-   Extracted from Figma: lFd6NFtRDnq5qtRmg79uh0 "Construction Website (Community)"
-   Colors are exact fill values from the file. Type scale is normalized from the
-   effective (post-transform) sizes measured across the 8 frames.
+   Design tokens
+
+   Type scale and layout come from Figma lFd6NFtRDnq5qtRmg79uh0 "Construction
+   Website (Community)" — normalized from the effective (post-transform) sizes
+   measured across the 8 frames.
+
+   COLOR is no longer the Figma's. It is sampled from the client logo
+   (public/logo.jpeg — Tabela Robusta): every pixel converted to HLS and
+   bucketed by hue, then each population read at percentiles so the gradients
+   are captured rather than one arbitrary pixel.
+
+     navy  hue 222°, 8.8k px   p02 #2E3756 · p50 #2A3F6A · p98 #375184
+     gold  hue  36°, 33k px    p02 #9A6637 · p50 #C1873D · p98 #F3D4B5
+
+   Navy leads and gold accents, which inverts the Figma's use of yellow for
+   large fills. The reason is contrast, not taste: gold is a mid-tone (L 50%)
+   that cannot carry white text (3.09:1) or body text on white (3.09:1), while
+   navy clears 10.41:1 against both white and gold. See plan.md Phase 26.
+
+   ⚠️ TWO STANDING RULES
+   1. Nothing sits on `gold` except `ink` (5.75:1). White-on-gold is 3.09 and
+      navy-on-gold is 3.37 — both fail AA.
+   2. Gold *as text on white* must use `gold-deep` (5.61:1). Plain `gold` is
+      3.09 — legal only for >=18.66px bold, illegal for anything smaller.
+
    The design is light-only — there is no dark variant.
 --------------------------------------------------------------------------- */
 
 @theme {
-  /* -- Brand ------------------------------------------------------------- */
-  --color-brand: #f3c41a;
-  --color-brand-bright: #ffc700;
-  --color-accent: #f79329;
-  --color-accent-deep: #ed6c30;
+  /* -- Primary: navy ----------------------------------------------------- */
+  --color-primary: #2a3f6a;
+  --color-primary-deep: #1b2b49;
+  /* Lifted navy for fields and dividers that need to read against `footer`. */
+  --color-primary-soft: #3a5286;
 
-  /* -- Neutrals ---------------------------------------------------------- */
-  --color-ink: #000000;
-  --color-ink-soft: #090909;
-  --color-footer: #333131;
-  --color-surface: #f8f8f8;
-  --color-muted: #888888;
-  --color-line: #cccccc;
-  --color-line-strong: #c4c4c4;
+  /* -- Accent: gold ------------------------------------------------------ */
+  --color-gold: #c1873d;
+  /* Gold on dark grounds, and the hover step up from `gold`. */
+  --color-gold-bright: #e0b25f;
+  /* Gold as text on white — the only gold that clears AA for body copy. */
+  --color-gold-deep: #8a5f26;
+
+  /* -- State ------------------------------------------------------------- */
+  /* Deliberately a red, not the old orange: an error must not read as brand. */
+  --color-danger: #c0392b;
+  --color-danger-soft: #f2a9a0;
+
+  /* -- Neutrals (navy-tinted — pure greys go muddy next to navy) ---------- */
+  --color-ink: #0f1829;
+  --color-footer: #16233d;
+  --color-surface: #f5f7fa;
+  --color-muted: #5c6b84;
+  --color-line: #d8dee8;
+  --color-line-strong: #b8c2d1;
 
   /* -- Typography -------------------------------------------------------- */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -76,7 +108,7 @@
  * max-width 1300 + 40px padding reproduces that exactly at >=1440 while
  * degrading to plain gutters on smaller screens.
  */
-@utility container-boldixer {
+@utility container-site {
   width: 100%;
   max-width: 81.25rem; /* 1300px */
   margin-inline: auto;
@@ -93,7 +125,7 @@
 
 /**
  * Full-bleed carousel track whose first item lines up with the content column.
- * Mirrors container-boldixer's inset without capping width, so slides can
+ * Mirrors container-site's inset without capping width, so slides can
  * overflow past the viewport edge as the Portfolio design does.
  */
 @utility carousel-inset {
@@ -124,12 +156,13 @@
   }
 }
 
-/* Eyebrow labels: "01---About Us", "04 --- Services" */
+/* Section labels: brand rule + "About Us". Numbering removed in Phase 16. */
 @utility eyebrow {
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.2;
-  color: var(--color-brand);
+  /* gold-deep, not gold: these sit on white at 20px, and `gold` is 3.09:1. */
+  color: var(--color-gold-deep);
 }
 
 /**
@@ -215,7 +248,7 @@
     display: block;
     transform: scaleX(0);
     transform-origin: 0 50%;
-    animation: boldixer-progress linear both;
+    animation: site-progress linear both;
     animation-timeline: scroll(root block);
 
     @media (prefers-reduced-motion: reduce) {
@@ -224,7 +257,7 @@
   }
 }
 
-@keyframes boldixer-progress {
+@keyframes site-progress {
   to {
     transform: scaleX(1);
   }
@@ -237,14 +270,14 @@
 @utility parallax-slow {
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
-      animation: boldixer-parallax linear both;
+      animation: site-parallax linear both;
       animation-timeline: view();
       animation-range: cover 0% cover 100%;
     }
   }
 }
 
-@keyframes boldixer-parallax {
+@keyframes site-parallax {
   from {
     transform: translate3d(0, -3%, 0);
   }
@@ -254,7 +287,7 @@
 }
 
 /* Pinned header drops in rather than snapping. */
-@keyframes boldixer-drop {
+@keyframes site-drop {
   from {
     transform: translate3d(0, -100%, 0);
   }
@@ -264,7 +297,7 @@
 }
 
 @utility animate-header-drop {
-  animation: boldixer-drop 320ms var(--ease-out-soft) both;
+  animation: site-drop 320ms var(--ease-out-soft) both;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -272,7 +305,7 @@
 }
 
 /* Preloader: sweeping bar + slow gear rotation. */
-@keyframes boldixer-sweep {
+@keyframes site-sweep {
   0% {
     transform: translateX(-100%);
   }
@@ -281,14 +314,14 @@
   }
 }
 
-@keyframes boldixer-spin {
+@keyframes site-spin {
   to {
     transform: rotate(360deg);
   }
 }
 
 @utility animate-sweep {
-  animation: boldixer-sweep 1.1s var(--ease-out-soft) infinite;
+  animation: site-sweep 1.1s var(--ease-out-soft) infinite;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -296,7 +329,7 @@
 }
 
 @utility animate-spin-slow {
-  animation: boldixer-spin 2.6s linear infinite;
+  animation: site-spin 2.6s linear infinite;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -313,21 +346,27 @@
   }
 }
 
-/* Soft pulse behind the collage play control. */
-@keyframes boldixer-pulse {
+/**
+ * Soft pulse behind the collage play control.
+ *
+ * Gold rather than white: the control sits on the pale upper half of the
+ * collage, where a white ring had almost nothing to push against. Dormant
+ * until `collage.videoUrl` is set — the button is not rendered otherwise.
+ */
+@keyframes site-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgb(255 255 255 / 0.5);
+    box-shadow: 0 0 0 0 rgb(224 178 95 / 0.65);
   }
   70% {
-    box-shadow: 0 0 0 18px rgb(255 255 255 / 0);
+    box-shadow: 0 0 0 18px rgb(224 178 95 / 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgb(255 255 255 / 0);
+    box-shadow: 0 0 0 0 rgb(224 178 95 / 0);
   }
 }
 
 @utility animate-play-pulse {
-  animation: boldixer-pulse 2.4s var(--ease-out-soft) infinite;
+  animation: site-pulse 2.4s var(--ease-out-soft) infinite;
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;
@@ -358,10 +397,40 @@
     letter-spacing: -0.01em;
   }
 
-  /* Visible focus for keyboard users only. */
+  /**
+   * Visible focus for keyboard users only.
+   *
+   * Two-tone, because no single colour survives this palette. Focusable things
+   * sit on white, on gold (the logo block), on navy (footer, portfolio panel,
+   * top bar) and on photography. `ink` alone is ~1.2:1 on the navy footer —
+   * effectively no indicator at all. White then ink means one of the two
+   * always clears WCAG 2.2 SC 2.4.11's 3:1 against whatever is behind it.
+   *
+   * ⚠️ The ring is `box-shadow`, not `outline`, for two reasons:
+   *
+   * 1. Tailwind's `transition-colors` includes `outline-color`, so an outline
+   *    ring *fades in over 200ms starting from `currentColor`*. On the quote
+   *    button — white text on a white card — that is a white ring on white for
+   *    the first 200ms, i.e. no indicator exactly when a fast keyboard user
+   *    needs one. `box-shadow` is not in that property list, so it is instant.
+   * 2. `Input` carries `outline-none`, which sits in the utilities layer and
+   *    beats anything declared here. The fields had no ring at all before.
+   *
+   * The outline stays, transparent, so forced-colors mode still paints an
+   * indicator — it overrides outline-color and ignores box-shadow entirely.
+   */
   :focus-visible {
-    outline: 2px solid var(--color-ink);
+    outline: 2px solid transparent;
     outline-offset: 2px;
+    box-shadow:
+      0 0 0 2px #ffffff,
+      0 0 0 4px var(--color-ink);
+  }
+
+  /* Brand selection rather than the browser's blue. */
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-ink);
   }
 
   @media (prefers-reduced-motion: reduce) {

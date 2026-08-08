@@ -3,7 +3,8 @@
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 import { Button, Icon, Input } from "@/components/ui";
-import { subscribeNewsletter, initialFormState } from "@/app/actions";
+import { subscribeNewsletter } from "@/app/actions";
+import { initialFormState } from "@/lib/formState";
 import { footer } from "@/content/footer";
 
 /**
@@ -70,7 +71,7 @@ export function NewsletterForm() {
         <p
           role="status"
           aria-live="polite"
-          className="mt-4 text-sm font-semibold text-brand"
+          className="mt-4 text-sm font-semibold text-gold-bright"
         >
           {state.status !== "idle" ? state.message : ""}
         </p>

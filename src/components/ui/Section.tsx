@@ -3,7 +3,7 @@ import { Container } from "./Container";
 
 type SectionProps = React.ComponentPropsWithoutRef<"section"> & {
   /** Background treatment. */
-  tone?: "white" | "surface" | "brand" | "footer";
+  tone?: "white" | "surface" | "primary" | "footer";
   /** Skip the inner Container when the section manages its own layout. */
   bare?: boolean;
   containerClassName?: string;
@@ -12,7 +12,7 @@ type SectionProps = React.ComponentPropsWithoutRef<"section"> & {
 const tones = {
   white: "bg-white text-ink",
   surface: "bg-surface text-ink",
-  brand: "bg-brand text-ink",
+  primary: "bg-primary text-white",
   footer: "bg-footer text-white",
 } as const;
 

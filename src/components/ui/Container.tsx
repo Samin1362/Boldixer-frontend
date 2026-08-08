@@ -14,7 +14,7 @@ export function Container({
   return (
     <div
       className={cn(
-        bleed ? "w-full px-gutter" : "container-boldixer",
+        bleed ? "w-full px-gutter" : "container-site",
         className,
       )}
       {...props}

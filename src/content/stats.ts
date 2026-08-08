@@ -8,7 +8,7 @@ import type { IconName } from "@/lib/icons";
  * name survived), so they were exported directly as `figma:*` vectors.
  */
 export const stats = [
-  { value: 2000, suffix: "+", label: "projects Done", icon: "ph:wall-fill" as IconName },
+  { value: 2000, suffix: "+", label: "Projects Done", icon: "ph:wall-fill" as IconName },
   { value: 100, suffix: "+", label: "Team Members", icon: "healthicons:construction-worker" as IconName },
   { value: 189, suffix: "+", label: "Cups of Coffee", icon: "figma:stat-home-heart" as IconName },
   { value: 10, suffix: "+", label: "Rewards Achieved", icon: "figma:stat-trophy" as IconName },

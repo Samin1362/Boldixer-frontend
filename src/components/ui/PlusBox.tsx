@@ -25,8 +25,8 @@ export function PlusBox({ href, label, decorative, className }: PlusBoxProps) {
     "inline-flex h-[55px] w-[62px] items-center justify-center border border-line-strong bg-white text-ink",
     "transition-colors duration-200",
     decorative
-      ? "group-hover:border-ink group-hover:bg-brand"
-      : "hover:border-ink hover:bg-brand",
+      ? "group-hover:border-gold group-hover:bg-gold"
+      : "hover:border-gold hover:bg-gold",
     className,
   );
 

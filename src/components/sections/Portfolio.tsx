@@ -35,13 +35,12 @@ export function Portfolio() {
 
       <div className="relative py-section lg:py-section-lg">
         <Container>
-          <Reveal>
-            <SectionEyebrow
-              number={portfolio.eyebrow.number}
-              className="text-white"
-            >
-              {portfolio.eyebrow.label}
+          <Reveal variant="left">
+            <SectionEyebrow className="text-white">
+              {portfolio.eyebrow}
             </SectionEyebrow>
+          </Reveal>
+          <Reveal variant="left" delay={90}>
             <SectionHeading className="mt-4 text-white lg:text-[50px]">
               {portfolio.title}
             </SectionHeading>
@@ -57,15 +56,20 @@ export function Portfolio() {
           className="carousel-inset scrollbar-none mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto lg:mt-20 lg:gap-[43px]"
         >
           {portfolio.items.map((item, i) => (
-            <div
+            <Reveal
               key={i}
-              role="group"
-              aria-roledescription="slide"
-              aria-label={`${i + 1} of ${portfolio.items.length}`}
+              variant="up"
+              delay={i * 110}
               className="w-[280px] shrink-0 snap-start sm:w-[340px] lg:w-[385px]"
             >
-              <WorkCard {...item} />
-            </div>
+              <div
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${i + 1} of ${portfolio.items.length}`}
+              >
+                <WorkCard {...item} />
+              </div>
+            </Reveal>
           ))}
           {/* Trailing spacer so the last slide can scroll clear of the edge. */}
           <div aria-hidden className="w-6 shrink-0 lg:w-[43px]" />

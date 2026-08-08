@@ -48,6 +48,6 @@ export const services: Service[] = [
 ];
 
 export const servicesMeta = {
-  eyebrow: { number: "04", label: "Services" },
+  eyebrow: "Services",
   title: "What We Do",
 };

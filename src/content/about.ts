@@ -7,7 +7,7 @@
  * is dropped here so the paragraph reflows responsively.
  */
 export const about = {
-  eyebrow: { number: "01", label: "About Us" },
+  eyebrow: "About Us",
   titleLines: ["We Help Pepole ", "Elevate Happines"],
   body: {
     before: "Vivamus suscipit tortor eget ",

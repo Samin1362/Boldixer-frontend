@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { Container } from "@/components/ui";
+import { Container, Reveal } from "@/components/ui";
 import { StatCounter } from "./StatCounter";
 import { VideoLightbox } from "./VideoLightbox";
 import { useInView } from "@/hooks/useInView";
@@ -30,7 +30,11 @@ export function Stats() {
         className="relative mx-auto max-w-[1440px] lg:aspect-[1440/1024]"
       >
         {/* Back layer */}
-        <div className="absolute inset-x-0 top-[29%] bottom-0 hidden lg:block">
+        <Reveal
+          variant="fade"
+          duration={900}
+          className="absolute inset-x-0 top-[29%] bottom-0 hidden lg:block"
+        >
           <Image
             src={collage.wide.src}
             alt=""
@@ -39,10 +43,14 @@ export function Stats() {
             sizes="100vw"
             className="object-cover"
           />
-        </div>
+        </Reveal>
 
         {/* Front layer, with the real control over the baked-in play glyph */}
-        <div className="relative aspect-[1174/588] w-full lg:absolute lg:top-[6.1%] lg:left-[19.8%] lg:w-[81.5%]">
+        <Reveal
+          variant="zoom"
+          duration={800}
+          className="relative aspect-[1174/588] w-full lg:absolute lg:top-[6.1%] lg:left-[19.8%] lg:w-[81.5%]"
+        >
           <Image
             src={collage.capture.src}
             alt={collage.capture.alt}
@@ -58,19 +66,19 @@ export function Stats() {
               className="animate-play-pulse absolute top-[49.5%] left-[52.9%] h-[13%] w-[9%] -translate-x-1/2 -translate-y-1/2 rounded-full transition-transform duration-200 hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             />
           )}
-        </div>
+        </Reveal>
 
         {/* Stats row */}
         <div className="relative bg-footer py-12 lg:absolute lg:inset-x-0 lg:bottom-[7%] lg:bg-transparent lg:py-0">
           <Container>
             <dl className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
-              {stats.map((stat) => (
-                <div key={stat.label}>
+              {stats.map((stat, i) => (
+                <Reveal key={stat.label} delay={i * 100}>
                   <dt className="sr-only">{stat.label}</dt>
                   <dd>
                     <StatCounter {...stat} active={inView} />
                   </dd>
-                </div>
+                </Reveal>
               ))}
             </dl>
           </Container>

@@ -30,7 +30,11 @@ export function About() {
         vertical distortion. Using object-cover instead: this asset is slated
         for replacement and baking in the stretch would outlive the bad source.
       */}
-      <div className="absolute top-section left-0 hidden w-[38.2%] lg:block lg:h-[562px]">
+      <Reveal
+        variant="mask"
+        duration={900}
+        className="top-section absolute left-0 hidden w-[38.2%] lg:block lg:h-[562px]"
+      >
         <Image
           src={about.image.src}
           alt=""
@@ -39,47 +43,54 @@ export function About() {
           sizes="38vw"
           className="object-cover"
         />
-      </div>
+      </Reveal>
 
       <Container>
-        <Reveal className="lg:ml-[44%] lg:min-h-[562px]">
-          <SectionEyebrow number={about.eyebrow.number}>
-            {about.eyebrow.label}
-          </SectionEyebrow>
+        <div className="lg:ml-[44%] lg:min-h-[562px]">
+          {/* `as` stays a div — SectionEyebrow renders a <p>, which cannot sit inside a span. */}
+          <Reveal variant="left">
+            <SectionEyebrow>{about.eyebrow}</SectionEyebrow>
+          </Reveal>
 
-          <SectionHeading
-            size="display"
-            className="mt-6 text-[40px] leading-tight sm:text-[52px] lg:text-[64px] lg:leading-[77px]"
-          >
-            {about.titleLines.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
-          </SectionHeading>
+          <Reveal delay={80}>
+            <SectionHeading
+              size="display"
+              className="mt-6 text-[40px] leading-tight sm:text-[52px] lg:text-[64px] lg:leading-[77px]"
+            >
+              {about.titleLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </SectionHeading>
+          </Reveal>
 
-          <p className="mt-8 max-w-[797px] text-lg font-semibold text-line-strong lg:mt-16">
-            {about.body.before}
-            <strong className="font-bold text-ink/80">
-              {about.body.emphasis}
-            </strong>
-            {about.body.after}
-          </p>
+          <Reveal delay={160}>
+            <p className="text-line-strong mt-8 max-w-[797px] text-lg font-semibold lg:mt-16">
+              {about.body.before}
+              <strong className="font-bold text-ink/80">
+                {about.body.emphasis}
+              </strong>
+              {about.body.after}
+            </p>
+          </Reveal>
 
-          <Button
-            href={about.cta.href}
-            variant="brand"
-            size="md"
-            className="mt-10 text-white lg:mt-14"
-          >
-            {about.cta.label}
-          </Button>
-        </Reveal>
+          <Reveal delay={240}>
+            <Button
+              href={about.cta.href}
+              variant="brand"
+              size="md"
+              className="mt-10 text-white lg:mt-14"
+            >
+              {about.cta.label}
+            </Button>
+          </Reveal>
+        </div>
       </Container>
 
       {/* Small screens: photo below the copy instead of beside it. */}
       <Container className="mt-12 lg:hidden">
-        <div className="relative aspect-[285/242] w-full">
+        <Reveal variant="zoom" className="relative aspect-[285/242] w-full">
           <Image
             src={about.image.src}
             alt={about.image.alt}
@@ -87,7 +98,7 @@ export function About() {
             sizes="(max-width: 1024px) 92vw, 0px"
             className="object-cover"
           />
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

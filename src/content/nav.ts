@@ -15,15 +15,12 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  {
-    label: "Home Pages",
-    href: "/",
-    children: [
-      { label: "Home 01", href: "/" },
-      { label: "Home 02", href: "#" },
-      { label: "Home 03", href: "#" },
-    ],
-  },
+  /*
+   * The design's "Home 01 / 02 / 03" submenu was template scaffolding for
+   * alternate homepage layouts that do not exist here, so Home is a plain link.
+   * The row still holds five items, which is what the divider rhythm needs.
+   */
+  { label: "Home", href: "/" },
   {
     label: "Blog",
     href: "#blog",
@@ -40,7 +37,6 @@ export const navItems: NavItem[] = [
       { label: "About Us", href: "#about" },
       { label: "Services", href: "#services" },
       { label: "Portfolio", href: "#portfolio" },
-      { label: "Testimonials", href: "#testimonials" },
       { label: "Team", href: "#" },
     ],
   },

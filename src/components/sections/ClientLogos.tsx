@@ -16,7 +16,7 @@ export function ClientLogos() {
               key={client.name}
               className="flex grow basis-[40%] justify-center sm:basis-auto"
             >
-              <Reveal delay={i * 80}>
+              <Reveal variant="zoom" delay={i * 70}>
                 <Image
                   src={client.src}
                   alt={client.name}

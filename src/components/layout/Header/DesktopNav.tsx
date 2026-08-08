@@ -7,7 +7,7 @@ import { navItems } from "@/content/nav";
  */
 export function DesktopNav() {
   return (
-    <nav aria-label="Main" className="hidden h-full lg:flex">
+    <nav aria-label="Main" className="hidden h-full xl:flex">
       <ul className="flex h-full items-stretch [&>li+li]:border-l [&>li+li]:border-ink/15">
         {navItems.map((item) => (
           <NavDropdown key={item.label} item={item} />

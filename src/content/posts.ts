@@ -38,6 +38,6 @@ export const posts = [
 ] as const;
 
 export const postsMeta = {
-  eyebrow: { number: "07", label: "News" },
+  eyebrow: "News",
   title: "Blog Insight",
 };

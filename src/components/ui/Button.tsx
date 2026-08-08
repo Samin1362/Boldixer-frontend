@@ -8,12 +8,16 @@ import { cn } from "@/lib/cn";
  *   "Get a Quote"    216x82  r=35                   text 25/700
  *   "Subscribe Now"  276x85  r=35                   text 18/700
  */
+/**
+ * `text-ink` on the gold variants is not a style choice — white on gold is
+ * 3.09:1 and fails AA. Ink on gold is 5.75:1. Do not override it.
+ */
 const variants = {
-  brand: "bg-brand text-ink hover:bg-brand-bright",
-  dark: "bg-ink text-white hover:bg-footer",
-  bright: "bg-brand-bright text-ink hover:bg-brand",
+  gold: "bg-gold text-ink hover:bg-gold-bright",
+  primary: "bg-primary text-white hover:bg-primary-deep",
+  bright: "bg-gold-bright text-ink hover:bg-gold",
   outline:
-    "bg-transparent text-ink border border-ink hover:bg-ink hover:text-white",
+    "bg-transparent text-primary border border-primary hover:bg-primary hover:text-white",
 } as const;
 
 const sizes = {
@@ -55,7 +59,7 @@ const base =
 
 /** Pill button. Renders an <a> when `href` is given, otherwise a <button>. */
 export function Button({
-  variant = "brand",
+  variant = "gold",
   size = "md",
   radius = "full",
   className,

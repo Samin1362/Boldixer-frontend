@@ -13,14 +13,14 @@ export function ServiceCard({ service }: { service: Service }) {
   return (
     // px-5 matches the design's ~19px text inset and leaves the 37px title
     // enough width to stay on one line.
-    <article className="group flex min-h-[398px] flex-col border border-line bg-white px-5 py-7 transition-colors duration-200 hover:border-ink lg:min-h-[466px]">
+    <article className="group flex min-h-[398px] flex-col border-line hover:border-primary border bg-white px-5 py-7 transition-colors duration-200 lg:min-h-[466px]">
       <div className="flex grow flex-col justify-end pb-6">
         <Icon
           name={service.icon}
           size={62}
           className={cn(
             "transition-transform duration-200 group-hover:-translate-y-1",
-            !service.multicolor && "text-brand",
+            !service.multicolor && "text-gold",
           )}
         />
       </div>

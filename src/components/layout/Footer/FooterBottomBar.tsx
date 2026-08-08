@@ -13,7 +13,7 @@ import { site } from "@/content/site";
  */
 export function FooterBottomBar() {
   return (
-    <div className="bg-[#494646]">
+    <div className="bg-primary-deep">
       <Container className="flex flex-col items-center justify-between gap-4 py-8 text-center sm:flex-row sm:text-left">
         <p className="text-lg font-medium tracking-[0.1em] text-white">
           {site.copyright}
@@ -23,7 +23,7 @@ export function FooterBottomBar() {
             <li key={item.label}>
               <Link
                 href={item.href}
-                className="text-lg font-medium tracking-[0.1em] text-white transition-colors hover:text-brand"
+                className="text-lg font-medium tracking-[0.1em] text-white transition-colors hover:text-gold-bright"
               >
                 {item.label}
               </Link>

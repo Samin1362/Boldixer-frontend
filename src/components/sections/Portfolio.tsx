@@ -26,11 +26,11 @@ export function Portfolio() {
   const { trackRef, activeIndex, goTo } = useCarousel(portfolio.items.length);
 
   return (
-    <section id="portfolio" className="relative overflow-hidden bg-line-strong">
+    <section id="portfolio" className="relative overflow-hidden bg-line">
       {/* Brand panel — full width on small screens, 56.4% from lg. */}
       <div
         aria-hidden
-        className="absolute inset-y-0 left-0 w-full bg-brand-bright lg:w-[56.4%]"
+        className="absolute inset-y-0 left-0 w-full bg-primary lg:w-[56.4%]"
       />
 
       <div className="relative py-section lg:py-section-lg">

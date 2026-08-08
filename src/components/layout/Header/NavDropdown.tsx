@@ -42,7 +42,7 @@ export function NavDropdown({ item }: { item: NavItem }) {
       <li className="flex h-full">
         <Link
           href={item.href}
-          className="flex h-full items-center px-6 text-[15px] font-bold transition-colors hover:text-brand xl:px-8"
+          className="flex h-full items-center px-6 text-[15px] font-bold transition-colors hover:text-gold-deep xl:px-8"
         >
           {item.label}
         </Link>
@@ -72,7 +72,7 @@ export function NavDropdown({ item }: { item: NavItem }) {
             setOpen(true);
           }
         }}
-        className="flex h-full items-center gap-2.5 px-6 text-[15px] font-bold transition-colors hover:text-brand xl:px-8"
+        className="flex h-full items-center gap-2.5 px-6 text-[15px] font-bold transition-colors hover:text-gold-deep xl:px-8"
       >
         {item.label}
         <Icon
@@ -98,7 +98,7 @@ export function NavDropdown({ item }: { item: NavItem }) {
               href={child.href}
               tabIndex={open ? undefined : -1}
               onClick={() => setOpen(false)}
-              className="block px-6 py-3 text-[15px] font-medium text-ink transition-colors hover:bg-brand"
+              className="block px-6 py-3 text-[15px] font-medium text-ink transition-colors hover:bg-gold"
             >
               {child.label}
             </Link>

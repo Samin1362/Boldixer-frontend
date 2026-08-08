@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Icon } from "./Icon";
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 import { markAppReady } from "@/hooks/useAppReady";
 import { site } from "@/content/site";
@@ -73,27 +73,32 @@ export function Preloader() {
       data-preloader
       aria-hidden="true"
       className={cn(
-        "bg-ink-soft fixed inset-0 z-300 grid place-items-center",
+        "bg-ink fixed inset-0 z-300 grid place-items-center",
         "transition-opacity duration-500 ease-[var(--ease-out-soft)]",
         phase === "out" && "pointer-events-none opacity-0",
       )}
     >
-      <div className="flex flex-col items-center gap-7">
-        <span className="bg-brand grid h-20 w-20 place-items-center">
-          <Icon
-            name="figma:brand-gear"
-            size={38}
-            className="animate-spin-slow text-ink"
+      <div className="flex flex-col items-center gap-8">
+        {/*
+          A plaque, not a bare mark: the logo is navy-and-gold on white, so on
+          this near-black ground half of it would disappear. The wordmark is
+          part of the logo, so there is no separate text lockup here.
+        */}
+        <span className="block rounded-[14px] bg-white px-7 py-5">
+          <Image
+            src="/images/brand/tabela-robusta-lockup.png"
+            alt={site.name}
+            width={935}
+            height={404}
+            priority
+            sizes="240px"
+            className="h-auto w-[200px] sm:w-[240px]"
           />
-        </span>
-
-        <span className="text-[20px] font-bold tracking-[0.3em] text-white uppercase">
-          {site.name}
         </span>
 
         {/* Indeterminate sweep — there is no real progress figure to report. */}
         <span className="block h-0.5 w-40 overflow-hidden bg-white/15">
-          <span className="animate-sweep bg-brand block h-full w-1/4" />
+          <span className="animate-sweep bg-gold block h-full w-1/4" />
         </span>
       </div>
     </div>

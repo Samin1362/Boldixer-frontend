@@ -12,8 +12,9 @@ import { hero } from "@/content/hero";
  *   buttons    113x48 and 115x48, 24px apart, 12px/600 white labels
  *   photo      737x865 flush to the right edge (50.8% of canvas), bottom-aligned
  *
- * The "About Compnay" label is white on brand yellow in the design — about
- * 1.9:1 contrast. Reproduced as drawn; see plan.md Phase 15.
+ * The design set this label white on yellow — 1.65:1. The rebrand puts it on
+ * gold, where white is 3.09:1 and still fails, so the `text-white` override is
+ * gone and the Button's own `text-ink` stands (5.75:1). See plan.md Phase 26.
  *
  * Everything above the fold is already in view on mount, so its reveals are
  * gated on `useAppReady` instead: they play as the preloader lifts rather than
@@ -75,7 +76,6 @@ export function Hero() {
                   href={action.href}
                   variant={action.variant}
                   size="sm"
-                  className="text-white"
                 >
                   {action.label}
                 </Button>

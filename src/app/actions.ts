@@ -1,14 +1,15 @@
 "use server";
 
 import { quoteSchema, subscribeSchema } from "@/lib/validation";
+import type { FormState } from "@/lib/formState";
 
-export type FormState = {
-  status: "idle" | "success" | "error";
-  message?: string;
-  fieldErrors?: Record<string, string>;
-};
-
-export const initialFormState: FormState = { status: "idle" };
+/*
+ * ⚠️ Only async functions may be exported from a "use server" module. `FormState`
+ * and `initialFormState` therefore live in `@/lib/formState` — exporting the
+ * object from here threw at runtime (never at build time) and hung every
+ * submission on "Sending…". A type-only re-export is fine, but even that is
+ * avoided: import from `@/lib/formState` directly.
+ */
 
 /**
  * Handle a quote request.

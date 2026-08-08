@@ -66,7 +66,7 @@ export function About() {
           </Reveal>
 
           <Reveal delay={160}>
-            <p className="text-line-strong mt-8 max-w-[797px] text-lg font-semibold lg:mt-16">
+            <p className="text-muted mt-8 max-w-[797px] text-lg font-semibold lg:mt-16">
               {about.body.before}
               <strong className="font-bold text-ink/80">
                 {about.body.emphasis}
@@ -78,9 +78,9 @@ export function About() {
           <Reveal delay={240}>
             <Button
               href={about.cta.href}
-              variant="brand"
+              variant="gold"
               size="md"
-              className="mt-10 text-white lg:mt-14"
+              className="mt-10 lg:mt-14"
             >
               {about.cta.label}
             </Button>

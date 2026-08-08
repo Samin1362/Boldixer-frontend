@@ -24,9 +24,11 @@ export function BackToTop() {
       tabIndex={visible ? 0 : -1}
       aria-hidden={!visible}
       className={cn(
-        "bg-brand text-ink fixed right-5 bottom-5 z-110 grid h-12 w-12 place-items-center rounded-full shadow-[0_6px_20px_rgba(0,0,0,0.18)]",
+        "bg-gold text-ink fixed right-5 bottom-5 z-110 grid h-12 w-12 place-items-center rounded-full shadow-[0_6px_20px_rgba(0,0,0,0.18)]",
         "transition-[opacity,transform] duration-300 ease-[var(--ease-out-soft)]",
-        "hover:bg-brand-bright hover:-translate-y-1 lg:right-8 lg:bottom-8",
+        // Its `shadow-*` utility outranks the base focus ring, so restate it.
+        "focus-visible:shadow-[0_0_0_2px_#fff,0_0_0_4px_var(--color-ink)]",
+        "hover:bg-gold-bright hover:-translate-y-1 lg:right-8 lg:bottom-8",
         visible
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-3 opacity-0",

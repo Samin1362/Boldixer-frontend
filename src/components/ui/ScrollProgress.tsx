@@ -10,7 +10,7 @@ export function ScrollProgress() {
   return (
     <div
       aria-hidden="true"
-      className="scroll-progress bg-brand pointer-events-none fixed inset-x-0 top-0 z-120 h-[3px]"
+      className="scroll-progress bg-gold pointer-events-none fixed inset-x-0 top-0 z-120 h-[3px]"
     />
   );
 }

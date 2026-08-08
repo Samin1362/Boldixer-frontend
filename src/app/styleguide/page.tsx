@@ -20,16 +20,20 @@ import {
 import { icons, type IconName } from "@/lib/icons";
 
 const swatches = [
-  ["brand", "bg-brand", "#F3C41A"],
-  ["brand-bright", "bg-brand-bright", "#FFC700"],
-  ["accent", "bg-accent", "#F79329"],
-  ["accent-deep", "bg-accent-deep", "#ED6C30"],
-  ["ink", "bg-ink", "#000000"],
-  ["footer", "bg-footer", "#333131"],
-  ["surface", "bg-surface", "#F8F8F8"],
-  ["muted", "bg-muted", "#888888"],
-  ["line", "bg-line", "#CCCCCC"],
-  ["line-strong", "bg-line-strong", "#C4C4C4"],
+  ["primary", "bg-primary", "#2A3F6A"],
+  ["primary-deep", "bg-primary-deep", "#1B2B49"],
+  ["primary-soft", "bg-primary-soft", "#3A5286"],
+  ["gold", "bg-gold", "#C1873D"],
+  ["gold-bright", "bg-gold-bright", "#E0B25F"],
+  ["gold-deep", "bg-gold-deep", "#8A5F26"],
+  ["danger", "bg-danger", "#C0392B"],
+  ["danger-soft", "bg-danger-soft", "#F2A9A0"],
+  ["ink", "bg-ink", "#0F1829"],
+  ["footer", "bg-footer", "#16233D"],
+  ["surface", "bg-surface", "#F5F7FA"],
+  ["muted", "bg-muted", "#5C6B84"],
+  ["line", "bg-line", "#D8DEE8"],
+  ["line-strong", "bg-line-strong", "#B8C2D1"],
 ] as const;
 
 const typeScale = [
@@ -60,7 +64,7 @@ export default function StyleguidePage() {
       <Container>
         <SectionEyebrow>Styleguide</SectionEyebrow>
         <SectionHeading as="h1" size="display" className="mt-2">
-          Boldixer Pro costruction
+          Tabela Robusta Construction
         </SectionHeading>
         <p className="text-lg text-muted mt-4 max-w-2xl">
           Phase 1 tokens and Phase 2 primitives. Copy typos are reproduced from
@@ -87,7 +91,7 @@ export default function StyleguidePage() {
                 className="flex flex-wrap items-baseline gap-x-6 border-b border-line pb-3"
               >
                 <span className="text-xs text-muted w-28 shrink-0">{name}</span>
-                <span className={cls}>We Help Pepole Elevate Happines</span>
+                <span className={cls}>We Help People Elevate Happiness</span>
               </div>
             ))}
           </div>
@@ -97,8 +101,8 @@ export default function StyleguidePage() {
           <div className="space-y-2">
             <SectionEyebrow>About Us</SectionEyebrow>
             <SectionEyebrow>Services</SectionEyebrow>
-            <SectionEyebrow>Portfollo</SectionEyebrow>
-            <SectionEyebrow className="text-brand-bright">News</SectionEyebrow>
+            <SectionEyebrow>Portfolio</SectionEyebrow>
+            <SectionEyebrow className="text-gold-deep">News</SectionEyebrow>
             <SectionEyebrow centered>Centered</SectionEyebrow>
           </div>
         </Row>
@@ -106,22 +110,22 @@ export default function StyleguidePage() {
         <Row title="Buttons">
           <div className="space-y-6">
             <div className="flex flex-wrap items-center gap-4">
-              <Button variant="brand" size="sm">
-                About Compnay
+              <Button variant="gold" size="sm">
+                About Company
               </Button>
-              <Button variant="dark" size="sm">
+              <Button variant="primary" size="sm">
                 Get a Quote
               </Button>
               <span className="text-xs text-muted">size sm — hero</span>
             </div>
             <div className="flex flex-wrap items-center gap-4">
-              <Button variant="brand" size="md">
+              <Button variant="gold" size="md">
                 Read more
               </Button>
               <span className="text-xs text-muted">size md — about</span>
             </div>
             <div className="flex flex-wrap items-center gap-4">
-              <Button variant="dark" size="lg" radius="soft">
+              <Button variant="primary" size="lg" radius="soft">
                 Get a Quote
               </Button>
               <Button variant="bright" size="lg" radius="soft">
@@ -134,10 +138,10 @@ export default function StyleguidePage() {
               <Button variant="outline" size="md">
                 Outline
               </Button>
-              <Button variant="brand" size="md" disabled>
+              <Button variant="gold" size="md" disabled>
                 Disabled
               </Button>
-              <Button variant="dark" size="md" href="/">
+              <Button variant="primary" size="md" href="/">
                 As link
               </Button>
             </div>
@@ -148,7 +152,7 @@ export default function StyleguidePage() {
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="space-y-4">
               <Input label="Full Name" placeholder="Full Name" />
-              <Input label="Email id" placeholder="Email id" type="email" />
+              <Input label="Email Address" placeholder="Email Address" type="email" />
               <p className="text-xs text-muted">tone outline — contact card</p>
             </div>
             <div className="space-y-4 bg-footer p-8">
@@ -167,7 +171,7 @@ export default function StyleguidePage() {
         </Row>
 
         <Row title="Carousel dots">
-          <div className="bg-brand p-8">
+          <div className="bg-primary p-8">
             <CarouselDots count={3} activeIndex={slide} onSelect={setSlide} />
           </div>
           <div className="mt-4">
@@ -198,7 +202,7 @@ export default function StyleguidePage() {
         </p>
       </Section>
 
-      <Section tone="brand">
+      <Section tone="primary">
         <SectionHeading>Brand tone</SectionHeading>
       </Section>
 

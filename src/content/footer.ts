@@ -3,8 +3,15 @@
  * elsewhere). Every string carries 0.1em letter-spacing in the design.
  */
 export const footer = {
+  /*
+   * The template shipped e-learning copy here ("Earn points for correct
+   * answers, race against the clock…"), which was wrong for a construction
+   * company in every way. Replaced with the brand's own words — the four
+   * pillars and the slogan, both read off the logo — rather than inventing
+   * marketing copy. Swap for a real company description when one exists.
+   */
   blurb:
-    "Learning with us is fun & addictive. Earn points for correct answers, race against the clock, and level up. Our bite-sized lessons are effective, and we are good",
+    "Construção · Imobiliário · Confiança · Qualidade. Construímos mais que estruturas, construímos futuro.",
   columns: {
     pages: {
       title: "Main Pages",
@@ -18,7 +25,7 @@ export const footer = {
       ],
     },
     updates: {
-      title: "Gets Updates",
+      title: "Get Updates",
       namePlaceholder: "Enter Full Name",
       emailPlaceholder: "Enter Email",
       cta: "Subscribe Now",

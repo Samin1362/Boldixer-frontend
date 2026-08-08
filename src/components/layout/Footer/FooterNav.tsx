@@ -16,7 +16,7 @@ export function FooterNav() {
           <li key={link.label}>
             <Link
               href={link.href}
-              className="text-lg font-medium tracking-[0.1em] text-white transition-colors hover:text-brand"
+              className="text-lg font-medium tracking-[0.1em] text-white transition-colors hover:text-gold-bright"
             >
               {link.label}
             </Link>

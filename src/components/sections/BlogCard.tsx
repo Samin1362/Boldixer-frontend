@@ -28,7 +28,7 @@ export function BlogCard({ category, title, href, alt, image }: BlogCardProps) {
       </div>
 
       <div className="flex grow flex-col pt-6">
-        <p className="text-[20px] font-bold text-brand-bright">{category}</p>
+        <p className="text-gold-deep text-[20px] font-bold">{category}</p>
         <h3 className="mt-3 text-[22px] leading-[1.2] font-bold text-ink lg:text-[25px]">
           <Link href={href} className="after:absolute after:inset-0">
             {title}

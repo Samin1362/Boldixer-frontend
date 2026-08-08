@@ -1,8 +1,9 @@
-# Boldixer — Construction Landing Page
+# Tabela Robusta — Construction Landing Page
 
 Next.js 16 (App Router, Turbopack) · React 19 · Tailwind CSS v4 · TypeScript.
-A pixel-faithful build of the "Construction Website (Community)" Figma file,
-with an added motion layer.
+Built from the "Construction Website (Community)" Figma file for layout and
+type, then rebranded to **Tabela Robusta Unipessoal Lda** — palette sampled from
+the client logo, motion layer added.
 
 ## Local development
 
@@ -35,7 +36,7 @@ root-directory override.
    defaults.
 2. Add `NEXT_PUBLIC_SITE_URL` under Settings → Environment Variables for
    Production, Preview and Development. Set it to the final domain (e.g.
-   `https://boldixer.vercel.app`).
+   `https://tabelarobusta.pt`).
 3. Deploy. Every route is statically prerendered — there is no server runtime,
    database or external service to configure.
 
@@ -46,8 +47,11 @@ Redeploy after changing `NEXT_PUBLIC_SITE_URL`; it is inlined at build time.
 - **Forms are validated but not delivered.** `submitQuote` and
   `subscribeNewsletter` in `src/app/actions.ts` each end at a marked `TODO`
   where the payload is logged. Wire an email provider, CRM or webhook there.
-- **Hero and About photography** is upscaled from low-resolution Figma exports.
-  Replacements drop into `public/images/`.
+- **Hero and About photography** is upscaled from low-resolution Figma exports,
+  and still shows orange hi-vis against a navy/gold palette. Replacements drop
+  into `public/images/`.
+- **Contact details are placeholders** — phone, email and the client logo strip
+  all still carry template data. See `plan.md` → "Content still needed".
 
 ## Structure
 
@@ -70,6 +74,9 @@ public/
 `robots.txt`; delete `src/app/styleguide/` if you would rather it not ship.
 
 ## Motion
+
+Palette is navy `#2A3F6A` / gold `#C1873D`, sampled from the logo; `src/app/globals.css`
+carries the token set and the two contrast rules that govern it.
 
 Scroll reveals, the intro preloader and the progress rail all degrade cleanly:
 they sit behind `@media (scripting: enabled)` and

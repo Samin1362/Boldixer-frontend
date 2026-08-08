@@ -13,9 +13,9 @@ type StatCounterProps = {
 };
 
 /**
- * Figma: icon 70x70 #FFC700, number 45px/700 white, "+" and label 22px
- * #F3C41A. Number and label are one text node in the design, split here so the
- * number can animate.
+ * Figma: icon 70x70, number 45px/700 white, "+" and label 22px in the accent.
+ * Number and label are one text node in the design, split here so the number
+ * can animate. Gold-bright rather than gold: this sits on dark photography.
  */
 export function StatCounter({
   value,
@@ -28,7 +28,7 @@ export function StatCounter({
 
   return (
     <div>
-      <Icon name={icon} size={54} className="text-brand-bright" />
+      <Icon name={icon} size={54} className="text-gold-bright" />
       <p className="mt-4 leading-none">
         {/* aria-label carries the final figure so SR users never hear a partial count. */}
         <span
@@ -37,11 +37,11 @@ export function StatCounter({
         >
           <span aria-hidden="true">{current.toLocaleString("en-US")}</span>
         </span>
-        <span aria-hidden="true" className="text-lg font-bold text-brand">
+        <span aria-hidden="true" className="text-gold-bright text-lg font-bold">
           {suffix}
         </span>
       </p>
-      <p className="mt-1 text-lg font-bold text-brand">{label}</p>
+      <p className="text-gold-bright mt-1 text-lg font-bold">{label}</p>
     </div>
   );
 }

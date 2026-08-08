@@ -22,7 +22,7 @@ export function Blog() {
     <section id="blog" className="py-section lg:py-section-lg">
       <Container>
         <Reveal variant="left">
-          <SectionEyebrow className="text-brand-bright">
+          <SectionEyebrow className="text-gold-deep">
             {postsMeta.eyebrow}
           </SectionEyebrow>
         </Reveal>

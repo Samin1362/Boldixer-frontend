@@ -1,6 +1,6 @@
 /**
- * Blog posts. Copy verbatim from the design, including the missing spaces in
- * "Cranes,hammers and nails.this".
+ * Blog posts. Spelling and punctuation corrected from the design, which was
+ * missing the spaces in "Cranes,hammers and nails.this".
  *
  * Each card is one text node shaped `category \n\n title-line-1 \n title-line-2`
  * with a character override: category 20px #FFC700, title 25px black. Cards 1
@@ -29,7 +29,7 @@ export const posts = [
   },
   {
     category: "Building",
-    title: "Cranes,hammers and nails.this is the foundation",
+    title: "Cranes, hammers and nails. This is the foundation",
     date: "May 20, 2020",
     href: "#",
     image: { src: "/images/blog/post-building.png", width: 228, height: 178 },

@@ -17,6 +17,10 @@ export const site = {
     { label: "Terms of Use", href: "#" },
     { label: "Privacy Policy", href: "#" },
   ],
+  /**
+   * NOT rendered — the Figma footer has no social row (the original Bootstrap
+   * theme did). Kept here for when they're wanted; see plan.md Phase 12.
+   */
   socials: [
     { label: "Facebook", href: "#", icon: "ri:facebook-fill" },
     { label: "LinkedIn", href: "#", icon: "ri:linkedin-fill" },

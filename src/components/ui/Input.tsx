@@ -9,6 +9,8 @@ type InputProps = React.ComponentPropsWithRef<"input"> & {
   tone?: "outline" | "filled";
   /** Visually hidden label. Every field needs one. */
   label: string;
+  /** Validation message. Sets aria-invalid and is announced on change. */
+  error?: string;
   wrapperClassName?: string;
 };
 
@@ -23,12 +25,14 @@ const tones = {
 export function Input({
   tone = "outline",
   label,
+  error,
   id,
   className,
   wrapperClassName,
   ...props
 }: InputProps) {
   const inputId = id ?? `field-${label.toLowerCase().replace(/\s+/g, "-")}`;
+  const errorId = `${inputId}-error`;
 
   return (
     <div className={cn("w-full", wrapperClassName)}>
@@ -37,13 +41,28 @@ export function Input({
       </label>
       <input
         id={inputId}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? errorId : undefined}
         className={cn(
           "h-[70px] w-full rounded-[29px] px-8 text-lg outline-none transition-colors duration-200",
           tones[tone],
+          error && "border-accent-deep",
           className,
         )}
         {...props}
       />
+      {error && (
+        <p
+          id={errorId}
+          role="alert"
+          className={cn(
+            "mt-2 px-8 text-sm font-semibold",
+            tone === "filled" ? "text-brand" : "text-accent-deep",
+          )}
+        >
+          {error}
+        </p>
+      )}
     </div>
   );
 }

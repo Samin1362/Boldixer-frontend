@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Boldixer design tokens
+   Extracted from Figma: lFd6NFtRDnq5qtRmg79uh0 "Construction Website (Community)"
+   Colors are exact fill values from the file. Type scale is normalized from the
+   effective (post-transform) sizes measured across the 8 frames.
+   The design is light-only — there is no dark variant.
+--------------------------------------------------------------------------- */
+
+@theme {
+  /* -- Brand ------------------------------------------------------------- */
+  --color-brand: #f3c41a;
+  --color-brand-bright: #ffc700;
+  --color-accent: #f79329;
+  --color-accent-deep: #ed6c30;
+
+  /* -- Neutrals ---------------------------------------------------------- */
+  --color-ink: #000000;
+  --color-ink-soft: #090909;
+  --color-footer: #333131;
+  --color-surface: #f8f8f8;
+  --color-muted: #888888;
+  --color-line: #cccccc;
+  --color-line-strong: #c4c4c4;
+
+  /* -- Typography -------------------------------------------------------- */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --text-display: 4rem; /* 64px — About h2 */
+  --text-display--line-height: 1.2;
+  --text-display--font-weight: 600;
+
+  --text-h1: 3.1875rem; /* 51px — Hero */
+  --text-h1--line-height: 1.2;
+  --text-h1--font-weight: 600;
+
+  --text-h2: 2.8125rem; /* 45px — section headings */
+  --text-h2--line-height: 1.2;
+  --text-h2--font-weight: 700;
+
+  --text-h3: 1.875rem; /* 30px — footer column heads */
+  --text-h3--line-height: 1.3;
+  --text-h3--font-weight: 700;
+
+  --text-lg: 1.375rem; /* 22px */
+  --text-lg--line-height: 1.6;
+
+  --text-base: 1.125rem; /* 18px */
+  --text-base--line-height: 1.6;
+
+  --text-sm: 0.9375rem; /* 15px */
+  --text-sm--line-height: 1.5;
+
+  --text-xs: 0.75rem; /* 12px */
+  --text-xs--line-height: 1.4;
+
+  /* -- Layout ------------------------------------------------------------ */
+  --spacing-gutter: 1.25rem;
+  --spacing-gutter-md: 2rem;
+  --spacing-gutter-lg: 3.75rem;
+
+  /* Section vertical rhythm */
+  --spacing-section: 5rem;
+  --spacing-section-lg: 7.5rem;
+
+  /* -- Motion ------------------------------------------------------------ */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The design canvas is 1440px with an ~1200px content column. */
+@utility container-boldixer {
+  width: 100%;
+  max-width: 75rem; /* 1200px */
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+
+  @media (width >= 48rem) {
+    padding-inline: var(--spacing-gutter-md);
+  }
+
+  @media (width >= 64rem) {
+    padding-inline: var(--spacing-gutter-lg);
+  }
+}
+
+/* Eyebrow labels: "01---About Us", "04 --- Services" */
+@utility eyebrow {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-brand);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  /* Visible focus for keyboard users only. */
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

@@ -1,6 +1,12 @@
 "use client";
 
-import { CarouselDots, Container, SectionEyebrow, SectionHeading } from "@/components/ui";
+import {
+  CarouselDots,
+  Container,
+  Reveal,
+  SectionEyebrow,
+  SectionHeading,
+} from "@/components/ui";
 import { WorkCard } from "./WorkCard";
 import { useCarousel } from "@/hooks/useCarousel";
 import { portfolio } from "@/content/portfolio";
@@ -29,12 +35,17 @@ export function Portfolio() {
 
       <div className="relative py-section lg:py-section-lg">
         <Container>
-          <SectionEyebrow number={portfolio.eyebrow.number} className="text-white">
-            {portfolio.eyebrow.label}
-          </SectionEyebrow>
-          <SectionHeading className="mt-4 text-white lg:text-[50px]">
-            {portfolio.title}
-          </SectionHeading>
+          <Reveal>
+            <SectionEyebrow
+              number={portfolio.eyebrow.number}
+              className="text-white"
+            >
+              {portfolio.eyebrow.label}
+            </SectionEyebrow>
+            <SectionHeading className="mt-4 text-white lg:text-[50px]">
+              {portfolio.title}
+            </SectionHeading>
+          </Reveal>
         </Container>
 
         <div

@@ -4,6 +4,7 @@ export { Container } from "./Container";
 export { Icon } from "./Icon";
 export { Input } from "./Input";
 export { PlusBox } from "./PlusBox";
+export { Reveal } from "./Reveal";
 export { Section } from "./Section";
 export { SectionEyebrow } from "./SectionEyebrow";
 export { SectionHeading } from "./SectionHeading";

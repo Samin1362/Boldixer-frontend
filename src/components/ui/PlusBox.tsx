@@ -24,7 +24,9 @@ export function PlusBox({ href, label, decorative, className }: PlusBoxProps) {
   const classes = cn(
     "inline-flex h-[55px] w-[62px] items-center justify-center border border-line-strong bg-white text-ink",
     "transition-colors duration-200",
-    decorative ? "group-hover:border-ink group-hover:bg-brand" : "hover:border-ink hover:bg-brand",
+    decorative
+      ? "group-hover:border-ink group-hover:bg-brand"
+      : "hover:border-ink hover:bg-brand",
     className,
   );
 

@@ -25,7 +25,10 @@ export function Stats() {
 
   return (
     <section aria-label="By the numbers" className="overflow-hidden py-section">
-      <div ref={ref} className="relative mx-auto max-w-[1440px] lg:aspect-[1440/1024]">
+      <div
+        ref={ref}
+        className="relative mx-auto max-w-[1440px] lg:aspect-[1440/1024]"
+      >
         {/* Back layer */}
         <div className="absolute inset-x-0 top-[29%] bottom-0 hidden lg:block">
           <Image
@@ -52,7 +55,7 @@ export function Stats() {
               type="button"
               onClick={() => setPlaying(true)}
               aria-label="Play the company video"
-              className="absolute top-[49.5%] left-[52.9%] h-[13%] w-[9%] -translate-x-1/2 -translate-y-1/2 rounded-full transition-transform duration-200 hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              className="animate-play-pulse absolute top-[49.5%] left-[52.9%] h-[13%] w-[9%] -translate-x-1/2 -translate-y-1/2 rounded-full transition-transform duration-200 hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             />
           )}
         </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Container } from "@/components/ui";
+import { Container, Reveal } from "@/components/ui";
 import { QuoteForm } from "./QuoteForm";
 
 /**
@@ -26,12 +26,14 @@ export function Contact() {
       />
 
       <Container className="relative py-section lg:py-section-lg">
-        <div className="w-full rounded-[25px] bg-white p-8 sm:p-12 lg:w-[44.2%] lg:min-h-[740px] lg:py-[42px] lg:pr-[50px] lg:pl-[85px]">
-          <h2 className="text-[30px] font-bold lg:text-[38px]">Get a Full Quote</h2>
+        <Reveal className="w-full rounded-[25px] bg-white p-8 sm:p-12 lg:w-[44.2%] lg:min-h-[740px] lg:py-[42px] lg:pr-[50px] lg:pl-[85px]">
+          <h2 className="text-[30px] font-bold lg:text-[38px]">
+            Get a Full Quote
+          </h2>
           <div className="mt-8">
             <QuoteForm />
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

@@ -1,5 +1,11 @@
 import Image from "next/image";
-import { Button, Container, SectionEyebrow, SectionHeading } from "@/components/ui";
+import {
+  Button,
+  Container,
+  Reveal,
+  SectionEyebrow,
+  SectionHeading,
+} from "@/components/ui";
 import { about } from "@/content/about";
 
 /**
@@ -15,7 +21,10 @@ import { about } from "@/content/about";
  */
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden py-section lg:py-section-lg">
+    <section
+      id="about"
+      className="relative overflow-hidden py-section lg:py-section-lg"
+    >
       {/*
         Source crop is 285x242 stretched to 550x562 in the design — a ~20%
         vertical distortion. Using object-cover instead: this asset is slated
@@ -33,7 +42,7 @@ export function About() {
       </div>
 
       <Container>
-        <div className="lg:ml-[44%] lg:min-h-[562px]">
+        <Reveal className="lg:ml-[44%] lg:min-h-[562px]">
           <SectionEyebrow number={about.eyebrow.number}>
             {about.eyebrow.label}
           </SectionEyebrow>
@@ -51,7 +60,9 @@ export function About() {
 
           <p className="mt-8 max-w-[797px] text-lg font-semibold text-line-strong lg:mt-16">
             {about.body.before}
-            <strong className="font-bold text-ink/80">{about.body.emphasis}</strong>
+            <strong className="font-bold text-ink/80">
+              {about.body.emphasis}
+            </strong>
             {about.body.after}
           </p>
 
@@ -63,7 +74,7 @@ export function About() {
           >
             {about.cta.label}
           </Button>
-        </div>
+        </Reveal>
       </Container>
 
       {/* Small screens: photo below the copy instead of beside it. */}

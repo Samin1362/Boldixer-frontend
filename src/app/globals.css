@@ -58,7 +58,7 @@
   /* -- Layout ------------------------------------------------------------ */
   --spacing-gutter: 1.25rem;
   --spacing-gutter-md: 2rem;
-  --spacing-gutter-lg: 3.75rem;
+  --spacing-gutter-lg: 2.5rem;
 
   /* Section vertical rhythm */
   --spacing-section: 5rem;
@@ -68,10 +68,17 @@
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* The design canvas is 1440px with an ~1200px content column. */
+/**
+ * Content column.
+ *
+ * Measured from the file: on the 1440 canvas, section content sits ~110px in
+ * from each edge (hero 107, stats 117, portfolio 114) — a 1220px column.
+ * max-width 1300 + 40px padding reproduces that exactly at >=1440 while
+ * degrading to plain gutters on smaller screens.
+ */
 @utility container-boldixer {
   width: 100%;
-  max-width: 75rem; /* 1200px */
+  max-width: 81.25rem; /* 1300px */
   margin-inline: auto;
   padding-inline: var(--spacing-gutter);
 
@@ -81,6 +88,39 @@
 
   @media (width >= 64rem) {
     padding-inline: var(--spacing-gutter-lg);
+  }
+}
+
+/**
+ * Full-bleed carousel track whose first item lines up with the content column.
+ * Mirrors container-boldixer's inset without capping width, so slides can
+ * overflow past the viewport edge as the Portfolio design does.
+ */
+@utility carousel-inset {
+  padding-inline-start: var(--spacing-gutter);
+
+  @media (width >= 48rem) {
+    padding-inline-start: max(
+      var(--spacing-gutter-md),
+      calc((100vw - 81.25rem) / 2 + var(--spacing-gutter-md))
+    );
+  }
+
+  @media (width >= 64rem) {
+    padding-inline-start: max(
+      var(--spacing-gutter-lg),
+      calc((100vw - 81.25rem) / 2 + var(--spacing-gutter-lg))
+    );
+  }
+}
+
+/* Hide the scrollbar on drag-scrolled tracks without disabling scrolling. */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 

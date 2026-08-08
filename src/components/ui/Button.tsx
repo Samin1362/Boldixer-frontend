@@ -12,7 +12,8 @@ const variants = {
   brand: "bg-brand text-ink hover:bg-brand-bright",
   dark: "bg-ink text-white hover:bg-footer",
   bright: "bg-brand-bright text-ink hover:bg-brand",
-  outline: "bg-transparent text-ink border border-ink hover:bg-ink hover:text-white",
+  outline:
+    "bg-transparent text-ink border border-ink hover:bg-ink hover:text-white",
 } as const;
 
 const sizes = {
@@ -61,7 +62,13 @@ export function Button({
   children,
   ...props
 }: ButtonProps) {
-  const classes = cn(base, variants[variant], sizes[size], radii[radius], className);
+  const classes = cn(
+    base,
+    variants[variant],
+    sizes[size],
+    radii[radius],
+    className,
+  );
 
   if (props.href !== undefined) {
     const { href, ...rest } = props as ButtonAsLink;

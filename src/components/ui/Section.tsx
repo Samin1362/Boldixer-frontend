@@ -30,7 +30,11 @@ export function Section({
       className={cn("py-section lg:py-section-lg", tones[tone], className)}
       {...props}
     >
-      {bare ? children : <Container className={containerClassName}>{children}</Container>}
+      {bare ? (
+        children
+      ) : (
+        <Container className={containerClassName}>{children}</Container>
+      )}
     </section>
   );
 }

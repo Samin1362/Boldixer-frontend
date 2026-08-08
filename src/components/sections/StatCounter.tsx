@@ -17,7 +17,13 @@ type StatCounterProps = {
  * #F3C41A. Number and label are one text node in the design, split here so the
  * number can animate.
  */
-export function StatCounter({ value, suffix, label, icon, active }: StatCounterProps) {
+export function StatCounter({
+  value,
+  suffix,
+  label,
+  icon,
+  active,
+}: StatCounterProps) {
   const current = useCountUp(value, active);
 
   return (

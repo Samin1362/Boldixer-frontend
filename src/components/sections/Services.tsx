@@ -1,4 +1,4 @@
-import { Container, SectionHeading } from "@/components/ui";
+import { Container, Reveal, SectionHeading } from "@/components/ui";
 import { ServiceCard } from "./ServiceCard";
 import { services, servicesMeta } from "@/content/services";
 
@@ -17,7 +17,7 @@ export function Services() {
   return (
     <section id="services" className="py-section lg:py-section-lg">
       <Container>
-        <div className="text-center">
+        <Reveal className="text-center">
           {/* Lighter weight than `eyebrow` — the outlines here are noticeably thinner. */}
           <p className="text-xl text-brand">
             {servicesMeta.eyebrow.number}
@@ -26,11 +26,13 @@ export function Services() {
             {servicesMeta.eyebrow.label}
           </p>
           <SectionHeading className="mt-6">{servicesMeta.title}</SectionHeading>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4 lg:gap-[50px]">
-          {services.map((service) => (
-            <ServiceCard key={service.title} service={service} />
+          {services.map((service, i) => (
+            <Reveal key={service.title} delay={i * 90} className="h-full">
+              <ServiceCard service={service} />
+            </Reveal>
           ))}
         </div>
       </Container>

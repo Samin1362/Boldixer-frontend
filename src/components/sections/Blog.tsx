@@ -1,4 +1,9 @@
-import { Container, SectionEyebrow, SectionHeading } from "@/components/ui";
+import {
+  Container,
+  Reveal,
+  SectionEyebrow,
+  SectionHeading,
+} from "@/components/ui";
 import { BlogCard } from "./BlogCard";
 import { posts, postsMeta } from "@/content/posts";
 
@@ -16,18 +21,22 @@ export function Blog() {
   return (
     <section id="blog" className="py-section lg:py-section-lg">
       <Container>
-        <SectionEyebrow
-          number={postsMeta.eyebrow.number}
-          spaced
-          className="text-brand-bright"
-        >
-          {postsMeta.eyebrow.label}
-        </SectionEyebrow>
-        <SectionHeading className="mt-5">{postsMeta.title}</SectionHeading>
+        <Reveal>
+          <SectionEyebrow
+            number={postsMeta.eyebrow.number}
+            spaced
+            className="text-brand-bright"
+          >
+            {postsMeta.eyebrow.label}
+          </SectionEyebrow>
+          <SectionHeading className="mt-5">{postsMeta.title}</SectionHeading>
+        </Reveal>
 
         <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3 lg:gap-[71px]">
-          {posts.map((post) => (
-            <BlogCard key={post.title} {...post} />
+          {posts.map((post, i) => (
+            <Reveal key={post.title} delay={i * 110} className="h-full">
+              <BlogCard {...post} />
+            </Reveal>
           ))}
         </div>
       </Container>

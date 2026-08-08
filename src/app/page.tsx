@@ -4,6 +4,8 @@ import { ClientLogos } from "@/components/sections/ClientLogos";
 import { Services } from "@/components/sections/Services";
 import { Stats } from "@/components/sections/Stats";
 import { Portfolio } from "@/components/sections/Portfolio";
+import { Contact } from "@/components/sections/Contact";
+import { Blog } from "@/components/sections/Blog";
 
 /**
  * Landing page. Sections land phase by phase — see plan.md.
@@ -18,6 +20,8 @@ export default function Home() {
       <Services />
       <Stats />
       <Portfolio />
+      <Contact />
+      <Blog />
     </main>
   );
 }

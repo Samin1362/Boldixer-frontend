@@ -1,4 +1,9 @@
-import { Container, Reveal, SectionHeading } from "@/components/ui";
+import {
+  Container,
+  Reveal,
+  SectionEyebrow,
+  SectionHeading,
+} from "@/components/ui";
 import { ServiceCard } from "./ServiceCard";
 import { services, servicesMeta } from "@/content/services";
 
@@ -17,25 +22,35 @@ export function Services() {
   return (
     <section id="services" className="py-section lg:py-section-lg">
       <Container>
-        <Reveal className="text-center">
-          {/* Lighter weight than `eyebrow` — the outlines here are noticeably thinner. */}
-          <p className="text-xl text-brand">
-            {servicesMeta.eyebrow.number}
-            <span aria-hidden="true"> --- </span>
-            <span className="sr-only"> — </span>
-            {servicesMeta.eyebrow.label}
-          </p>
-          <SectionHeading className="mt-6">{servicesMeta.title}</SectionHeading>
-        </Reveal>
-
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4 lg:gap-[50px]">
-          {services.map((service, i) => (
-            <Reveal key={service.title} delay={i * 90} className="h-full">
-              <ServiceCard service={service} />
-            </Reveal>
-          ))}
+        <div className="text-center">
+          <Reveal>
+            <SectionEyebrow centered>{servicesMeta.eyebrow}</SectionEyebrow>
+          </Reveal>
+          <Reveal delay={90}>
+            <SectionHeading className="mt-6">
+              {servicesMeta.title}
+            </SectionHeading>
+          </Reveal>
         </div>
       </Container>
+
+      {/*
+        The design's card row spans 1430 of the 1440 canvas — far wider than the
+        1220 content column, so it sits outside the Container. Constrained to
+        1220 the 37px titles wrap ("Interior / Design").
+      */}
+      <div className="px-gutter mx-auto mt-14 grid max-w-[1440px] gap-8 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4 lg:gap-[50px]">
+        {services.map((service, i) => (
+          <Reveal
+            key={service.title}
+            variant="up"
+            delay={i * 90}
+            className="h-full"
+          >
+            <ServiceCard service={service} />
+          </Reveal>
+        ))}
+      </div>
     </section>
   );
 }

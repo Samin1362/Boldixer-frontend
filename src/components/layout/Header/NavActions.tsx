@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
 /** Figma: three 69x59 ellipses, white fill, 1px #000000 stroke. */
 const circle =
   "inline-flex h-[46px] w-[54px] items-center justify-center rounded-full border border-ink/20 " +
-  "transition-colors duration-200 hover:border-ink hover:bg-brand lg:h-[59px] lg:w-[69px]";
+  "transition-colors duration-200 hover:border-ink hover:bg-brand xl:h-[59px] xl:w-[69px]";
 
 type NavActionsProps = {
   onSearchToggle: () => void;
@@ -24,7 +24,7 @@ export function NavActions({
   className,
 }: NavActionsProps) {
   return (
-    <div className={cn("flex items-center gap-2 lg:gap-3", className)}>
+    <div className={cn("flex items-center gap-2 xl:gap-3", className)}>
       <button
         type="button"
         className={circle}

@@ -13,17 +13,17 @@ export function Logo({ className }: { className?: string }) {
       href="/"
       className={cn(
         "flex shrink-0 items-center gap-3 bg-brand px-5 text-white",
-        "h-[70px] w-[190px] lg:h-[125px] lg:w-[254px] lg:px-6",
+        "h-[70px] w-[190px] xl:h-[125px] xl:w-[254px] xl:px-6",
         className,
       )}
       aria-label={`${site.name} ${site.tagline} — home`}
     >
-      <Icon name="figma:brand-gear" size={38} className="lg:h-[50px] lg:w-[56px]" />
+      <Icon name="figma:brand-gear" size={38} className="xl:h-[50px] xl:w-[56px]" />
       <span className="leading-none">
-        <span className="block text-lg font-bold tracking-tight lg:text-[26px]">
+        <span className="block text-lg font-bold tracking-tight xl:text-[26px]">
           {site.name}
         </span>
-        <span className="mt-1 block text-[8px] font-bold tracking-[0.12em] lg:text-[10px]">
+        <span className="mt-1 block text-[8px] font-bold tracking-[0.12em] xl:text-[10px]">
           {site.tagline}
         </span>
       </span>

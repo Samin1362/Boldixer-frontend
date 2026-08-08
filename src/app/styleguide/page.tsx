@@ -58,7 +58,7 @@ export default function StyleguidePage() {
   return (
     <main className="py-16">
       <Container>
-        <SectionEyebrow number="00">Styleguide</SectionEyebrow>
+        <SectionEyebrow>Styleguide</SectionEyebrow>
         <SectionHeading as="h1" size="display" className="mt-2">
           Boldixer Pro costruction
         </SectionHeading>
@@ -95,14 +95,11 @@ export default function StyleguidePage() {
 
         <Row title="Eyebrows">
           <div className="space-y-2">
-            <SectionEyebrow number="01">About Us</SectionEyebrow>
-            <SectionEyebrow number="04" spaced>
-              Services
-            </SectionEyebrow>
-            <SectionEyebrow number="06">Portfollo</SectionEyebrow>
-            <SectionEyebrow number="07" spaced>
-              News
-            </SectionEyebrow>
+            <SectionEyebrow>About Us</SectionEyebrow>
+            <SectionEyebrow>Services</SectionEyebrow>
+            <SectionEyebrow>Portfollo</SectionEyebrow>
+            <SectionEyebrow className="text-brand-bright">News</SectionEyebrow>
+            <SectionEyebrow centered>Centered</SectionEyebrow>
           </div>
         </Row>
 
@@ -194,9 +191,7 @@ export default function StyleguidePage() {
       </Container>
 
       <Section tone="surface" className="mt-16">
-        <SectionEyebrow number="00" spaced>
-          Section
-        </SectionEyebrow>
+<SectionEyebrow>Section</SectionEyebrow>
         <SectionHeading className="mt-2">Surface tone</SectionHeading>
         <p className="text-lg text-muted mt-4">
           Section wrapper with the shared vertical rhythm and container.

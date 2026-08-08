@@ -11,7 +11,9 @@ import type { Service } from "@/content/services";
  */
 export function ServiceCard({ service }: { service: Service }) {
   return (
-    <article className="group flex min-h-[398px] flex-col border border-line bg-white p-7 transition-colors duration-200 hover:border-ink lg:min-h-[466px]">
+    // px-5 matches the design's ~19px text inset and leaves the 37px title
+    // enough width to stay on one line.
+    <article className="group flex min-h-[398px] flex-col border border-line bg-white px-5 py-7 transition-colors duration-200 hover:border-ink lg:min-h-[466px]">
       <div className="flex grow flex-col justify-end pb-6">
         <Icon
           name={service.icon}
@@ -24,7 +26,12 @@ export function ServiceCard({ service }: { service: Service }) {
       </div>
 
       <p className="text-[19px] font-bold text-ink">{service.kicker}</p>
-      <h3 className="mt-1 text-[30px] leading-tight font-bold text-ink lg:text-[37px]">
+      {/*
+        Measured at 37px, but the longer titles wrap at that size in a 4-up row.
+        32px keeps all four on one line — the design only avoided this by
+        letting the fourth card overflow the canvas and clip ("Architect Desig").
+      */}
+      <h3 className="mt-1 text-[30px] leading-tight font-bold text-ink lg:text-[32px]">
         {service.title}
       </h3>
 

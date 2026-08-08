@@ -1,10 +1,14 @@
+export { BackToTop } from "./BackToTop";
 export { Button } from "./Button";
 export { CarouselDots } from "./CarouselDots";
 export { Container } from "./Container";
 export { Icon } from "./Icon";
 export { Input } from "./Input";
 export { PlusBox } from "./PlusBox";
+export { Preloader } from "./Preloader";
 export { Reveal } from "./Reveal";
+export type { RevealVariant } from "./Reveal";
+export { ScrollProgress } from "./ScrollProgress";
 export { Section } from "./Section";
 export { SectionEyebrow } from "./SectionEyebrow";
 export { SectionHeading } from "./SectionHeading";

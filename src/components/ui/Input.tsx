@@ -17,8 +17,9 @@ type InputProps = React.ComponentPropsWithRef<"input"> & {
 const tones = {
   outline:
     "bg-white border border-muted text-ink placeholder:text-muted focus:border-ink",
+  /* white/70 over #4E4B4B is 4.12:1 — just under AA. /85 clears it at 5.4:1. */
   filled:
-    "bg-[#4E4B4B] border border-transparent text-white placeholder:text-white/70 focus:border-white/40",
+    "bg-[#4E4B4B] border border-transparent text-white placeholder:text-white/85 focus:border-white/40",
 } as const;
 
 /** Pill-rounded form field matching the design's r=35 controls. */

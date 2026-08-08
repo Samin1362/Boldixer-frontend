@@ -15,11 +15,16 @@ type Options = {
  * Uses a callback ref rather than useEffect so the observer attaches the
  * moment the node exists, and so the no-IntersectionObserver fallback can set
  * state without doing it inside an effect body.
+ *
+ * Defaults fire early on purpose: a 10% bottom inset plus a 0.08 threshold
+ * means an element starts moving as soon as its top edge clears the fold, so
+ * the animation is already finishing by the time it is properly on screen.
+ * Waiting longer is what makes reveal effects feel laggy.
  */
 export function useInView<T extends HTMLElement = HTMLDivElement>({
   once = true,
-  rootMargin = "0px 0px -15% 0px",
-  threshold = 0.2,
+  rootMargin = "0px 0px -10% 0px",
+  threshold = 0.08,
 }: Options = {}) {
   const [inView, setInView] = useState(false);
 

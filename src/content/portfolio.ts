@@ -8,7 +8,7 @@
  * dashes. A real carousel produces the peek from the track itself.
  */
 export const portfolio = {
-  eyebrow: { number: "06", label: "Portfollo" },
+  eyebrow: "Portfollo",
   title: "Our Works",
   items: [
     {

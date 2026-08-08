@@ -21,14 +21,12 @@ export function Blog() {
   return (
     <section id="blog" className="py-section lg:py-section-lg">
       <Container>
-        <Reveal>
-          <SectionEyebrow
-            number={postsMeta.eyebrow.number}
-            spaced
-            className="text-brand-bright"
-          >
-            {postsMeta.eyebrow.label}
+        <Reveal variant="left">
+          <SectionEyebrow className="text-brand-bright">
+            {postsMeta.eyebrow}
           </SectionEyebrow>
+        </Reveal>
+        <Reveal delay={90}>
           <SectionHeading className="mt-5">{postsMeta.title}</SectionHeading>
         </Reveal>
 

@@ -35,22 +35,22 @@ export function Header() {
           className={cn(
             "relative bg-white",
             stuck &&
-              "lg:fixed lg:top-0 lg:right-0 lg:left-0 lg:z-50 lg:shadow-[0_2px_20px_rgba(0,0,0,0.08)]",
+              "xl:animate-header-drop xl:fixed xl:top-0 xl:right-0 xl:left-0 xl:z-50 xl:shadow-[0_2px_20px_rgba(0,0,0,0.08)]",
           )}
         >
-          <div className="flex h-[70px] items-center lg:h-[82px]">
+          <div className="flex h-[70px] items-center xl:h-[82px]">
             <Logo
               className={cn(
-                "lg:absolute lg:top-0 lg:left-0 lg:z-10",
+                "xl:absolute xl:top-0 xl:left-0 xl:z-10",
                 // The 125px block would overhang a pinned bar, so clip it there.
-                stuck && "lg:h-[82px]",
+                stuck && "xl:h-[82px]",
               )}
             />
 
-            <div className="ml-auto flex h-full items-center lg:ml-[254px] lg:w-[calc(100%-254px)] lg:justify-between">
+            <div className="ml-auto flex h-full items-center xl:ml-[254px] xl:w-[calc(100%-254px)] xl:justify-between">
               <DesktopNav />
               <NavActions
-                className="px-gutter lg:pr-6"
+                className="px-gutter xl:pr-6"
                 searchOpen={searchOpen}
                 menuOpen={menuOpen}
                 onSearchToggle={() => setSearchOpen((v) => !v)}
@@ -61,7 +61,7 @@ export function Header() {
         </div>
 
         {/* Reserve the pinned bar's height so content doesn't jump. */}
-        {stuck && <div aria-hidden className="hidden h-[82px] lg:block" />}
+        {stuck && <div aria-hidden className="hidden h-[82px] xl:block" />}
       </header>
 
       <MobileDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />

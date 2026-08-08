@@ -1,31 +1,38 @@
 import { cn } from "@/lib/cn";
 
 type SectionEyebrowProps = {
-  /** Zero-padded section number, e.g. "01". */
-  number: string;
   children: React.ReactNode;
-  /** The design uses both "01---About Us" and "04 --- Services". */
-  spaced?: boolean;
+  /** Centre the rule + label as a unit (Services). */
+  centered?: boolean;
   className?: string;
 };
 
 /**
- * Numbered section label. The design's dash treatment is inconsistent between
- * sections — `spaced` reproduces the "04 --- Services" form, the default
- * reproduces "01---About Us".
+ * Section label.
+ *
+ * The Figma drew these as "01---About Us" / "04 --- Services", but the numbers
+ * were inconsistent (01, 04, 06, 07 — gaps left by sections that never made it
+ * into the redesign) and read as noise, so they were dropped. The dash survives
+ * as a short brand rule, which keeps the original silhouette without the
+ * bookkeeping.
  */
 export function SectionEyebrow({
-  number,
   children,
-  spaced = false,
+  centered = false,
   className,
 }: SectionEyebrowProps) {
-  const dash = spaced ? " --- " : "---";
   return (
-    <p className={cn("eyebrow", className)}>
-      {number}
-      <span aria-hidden="true">{dash}</span>
-      <span className="sr-only"> — </span>
+    <p
+      className={cn(
+        "eyebrow flex items-center gap-3",
+        centered && "justify-center",
+        className,
+      )}
+    >
+      <span
+        aria-hidden="true"
+        className="h-0.5 w-9 shrink-0 bg-current transition-[width] duration-500 ease-[var(--ease-out-soft)]"
+      />
       {children}
     </p>
   );

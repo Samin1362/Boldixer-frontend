@@ -4,14 +4,22 @@ import type { IconName } from "@/lib/icons";
  * Stat counters. Each is one Figma text node with character overrides:
  * the number at 45px white, then "+" and the label at 22px #F3C41A.
  *
+ * ⚠️⚠️ THE FOUR NUMBERS BELOW ARE STILL PLACEHOLDERS. ⚠️⚠️
+ * The template shipped 2000 / 100 / 189 / 10 with "Cups of Coffee" as the
+ * third label — a joke, and 2,000 projects is not a claim a unipessoal company
+ * can make. The labels are now real categories and the values were pulled down
+ * to something a firm this size could plausibly stand behind, but they are
+ * invented and must not go live unchanged. Replace all four with real figures
+ * from the client, or delete this section.
+ *
  * The house-heart and trophy icons were flattened in the file (no Iconify
  * name survived), so they were exported directly as `figma:*` vectors.
  */
 export const stats = [
-  { value: 2000, suffix: "+", label: "Projects Done", icon: "ph:wall-fill" as IconName },
-  { value: 100, suffix: "+", label: "Team Members", icon: "healthicons:construction-worker" as IconName },
-  { value: 189, suffix: "+", label: "Cups of Coffee", icon: "figma:stat-home-heart" as IconName },
-  { value: 10, suffix: "+", label: "Rewards Achieved", icon: "figma:stat-trophy" as IconName },
+  { value: 150, suffix: "+", label: "Projects Completed", icon: "ph:wall-fill" as IconName },
+  { value: 25, suffix: "+", label: "People on Site", icon: "healthicons:construction-worker" as IconName },
+  { value: 12, suffix: "+", label: "Years Building", icon: "figma:stat-home-heart" as IconName },
+  { value: 40, suffix: "+", label: "Clients Served", icon: "figma:stat-trophy" as IconName },
 ];
 
 export const collage = {

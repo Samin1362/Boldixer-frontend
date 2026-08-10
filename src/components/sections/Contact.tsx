@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui";
+import { phoneHref, site } from "@/content/site";
 import { QuoteForm } from "./QuoteForm";
 
 /**
@@ -56,6 +57,28 @@ export function Contact() {
         <h2 className="text-[30px] font-bold lg:text-[38px]">
           Get a Full Quote
         </h2>
+        {/*
+          Not in the design. The form was the only route into the company from
+          this section, and a client with a live job wants to phone someone.
+        */}
+        <p className="text-muted mt-3 text-base leading-relaxed font-medium">
+          Tell us about the project and we&rsquo;ll come back with a price. In a
+          hurry? Call{" "}
+          <a
+            href={phoneHref}
+            className="text-primary font-bold underline underline-offset-4"
+          >
+            {site.phone}
+          </a>{" "}
+          or email{" "}
+          <a
+            href={`mailto:${site.email}`}
+            className="text-primary font-bold underline underline-offset-4"
+          >
+            {site.email}
+          </a>
+          .
+        </p>
         <div className="mt-8">
           <QuoteForm />
         </div>

@@ -34,6 +34,15 @@ export function ServiceCard({ service }: { service: Service }) {
       <h3 className="mt-1 text-[30px] leading-tight font-bold text-ink lg:text-[32px]">
         {service.title}
       </h3>
+      {/*
+        Not in the design — the Figma card went straight from the title to the
+        plus box and said nothing about the work. The icon block above is a
+        `grow` spacer, so this takes its two lines from that slack and the card
+        height is unchanged.
+      */}
+      <p className="text-muted mt-3 text-base leading-relaxed font-medium">
+        {service.blurb}
+      </p>
 
       <PlusBox
         href={service.href}

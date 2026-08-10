@@ -2,7 +2,7 @@ import { Container, Reveal } from "@/components/ui";
 import { FooterBrand } from "./FooterBrand";
 import { FooterNav } from "./FooterNav";
 import { NewsletterForm } from "./NewsletterForm";
-import { FooterPosts } from "./FooterPosts";
+import { FooterContact } from "./FooterContact";
 import { FooterBottomBar } from "./FooterBottomBar";
 
 /**
@@ -14,6 +14,9 @@ import { FooterBottomBar } from "./FooterBottomBar";
  *
  * The Figma footer has **no social row** — the original Bootstrap theme did,
  * but the redesign dropped it. See plan.md.
+ *
+ * The fourth column was "Blog Insights", listing three posts that do not exist
+ * beside invented dates. It is now the contact block — same slot, same widths.
  */
 export function Footer() {
   return (
@@ -37,7 +40,7 @@ export function Footer() {
             <NewsletterForm />
           </Reveal>
           <Reveal delay={270}>
-            <FooterPosts />
+            <FooterContact />
           </Reveal>
         </div>
       </Container>

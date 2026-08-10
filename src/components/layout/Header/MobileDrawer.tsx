@@ -6,7 +6,7 @@ import { Icon } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 import { navItems } from "@/content/nav";
-import { site } from "@/content/site";
+import { phoneHref, site } from "@/content/site";
 
 type MobileDrawerProps = {
   open: boolean;
@@ -133,7 +133,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
 
         <div className="space-y-3 border-t border-line px-6 py-6 text-sm">
           <a
-            href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}
+            href={phoneHref}
             className="flex items-center gap-3 font-bold"
           >
             <Icon name="figma:topbar-phone" size={16} />

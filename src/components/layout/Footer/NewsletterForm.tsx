@@ -21,7 +21,13 @@ function SubmitButton() {
       variant="bright"
       radius="soft"
       disabled={pending}
-      className="mt-6 h-[74px] w-full max-w-[276px] text-base font-bold tracking-[0.1em] text-white"
+      /*
+        No `text-white` here. It was overriding the `bright` variant's own
+        `text-ink` and putting white on gold-bright — 1.96:1, the worst
+        contrast on the page. Same standing rule as everywhere else: nothing
+        sits on gold except ink.
+      */
+      className="mt-6 h-[74px] w-full max-w-[276px] text-base font-bold tracking-[0.1em]"
     >
       {pending ? "Subscribing..." : cta}
       <Icon name="la:telegram-plane" size={18} />

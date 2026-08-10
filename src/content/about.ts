@@ -1,21 +1,24 @@
 /**
- * About section copy. Spelling corrected from the Figma — see content/site.ts.
+ * About section copy.
  *
- * The body is one text node with a character-level override on chars 29-54
- * ("felis porttitor volutpat.") — Inter Bold, black at 81% opacity, against
- * #C4C4C4 for the rest. The design also hard-breaks after "congue"; that break
- * is dropped here so the paragraph reflows responsively.
+ * The body is one text node in the design with a character-level override on a
+ * mid-sentence run — Inter Bold, black at 81% opacity, against #C4C4C4 for the
+ * rest. That run is used here for the four pillars off the logo, which is the
+ * one part of this paragraph that is the company's own words rather than a
+ * description of them. The design also hard-breaks after "congue"; that break
+ * is dropped so the paragraph reflows responsively.
  */
 export const about = {
   eyebrow: "About Us",
-  titleLines: ["We Help People", "Elevate Happiness"],
+  titleLines: ["Built on Trust,", "Finished With Care"],
   body: {
-    before: "Vivamus suscipit tortor eget ",
-    emphasis: "felis porttitor volutpat.",
+    before:
+      "Tabela Robusta Unipessoal Lda is a Portuguese construction and real estate company built on four commitments — ",
+    emphasis: "construction, property, trust and quality.",
     after:
-      " Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis",
+      " We take on interior and exterior work, whole homes and the architectural design behind them, and we stay on the same site from the first drawing to the final handover. The people who quote your project are the people who run it, so nothing is lost between what was promised and what gets built.",
   },
-  cta: { label: "Read more", href: "#services" },
+  cta: { label: "Our Services", href: "#services" },
   image: {
     src: "/images/about/team-photo.png",
     width: 285,

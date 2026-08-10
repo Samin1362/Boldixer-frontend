@@ -35,9 +35,11 @@ export function NavActions({
         <Icon name="figma:nav-search" size={22} />
       </button>
 
-      <a href="#" className={cn(circle, "hidden sm:inline-flex")} aria-label="Cart">
-        <Icon name="figma:nav-bag" size={24} />
-      </a>
+      {/*
+        The design's third circle was a shopping cart linking to "#". There is
+        no shop — the Shop nav group went with it — so a cart icon here is a
+        promise the site cannot keep. Removed; two circles, not three.
+      */}
 
       <button
         type="button"
